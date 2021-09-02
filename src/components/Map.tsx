@@ -30,13 +30,13 @@ const MapContainer = styled.div<{ columns: number }>`
 const Map: FC = () => {
 
 
-  const [width, height] = [100, 100];
+  const [width, height] = [200, 200];
   const noise2D = makeNoise2D(Date.now()); // Using current date as seed
-  const noise: number[][] = makeRectangle(width, height, noise2D, { frequency: 0.024, octaves: 10, persistence: 0.2, amplitude: 2.3 });
+  const noise: number[][] = makeRectangle(width, height, noise2D, { frequency: 0.02, octaves: 13, persistence: 0.2, amplitude: 2.2 });
   const numberOfColors = 100;
   const rainbow = new Rainbow();
   rainbow.setNumberRange(1, numberOfColors);
-  rainbow.setSpectrum('#358610', '#693f00');
+  rainbow.setSpectrum('#358610', '#bace04', '#633b00');
   const colors: string[] = [];
 
   for (let i = 0; i < numberOfColors; i++) {
@@ -46,8 +46,8 @@ const Map: FC = () => {
   console.log(colors);
 
   const map = noise.map(row => row.map(square => {
-    const index = Math.round((square) * 100);
-    const color = (square > 0) ? colors[index] : '#035fb6';
+    const index = Math.round((square + 0.2) * 80);
+    const color = (square > -0.2) ? colors[index] : '#035fb6';
     return <Square numberOfSquaresInRow={width} color={color}></Square>
   }))
 
