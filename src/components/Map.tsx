@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useInput from '../hooks/use-input';
-import { NoiceGenerator } from './../helpers/noiceGenerator';
+import { NoiseGenerator } from '../helpers/noiseGenerator';
 
 
 
@@ -86,7 +86,7 @@ const Map: FC = () => {
   }))
 
   const generateTerrainHandler = (noiseWidth: number, noiseHeight: number, seed: number) => {
-    setNoise(new NoiceGenerator(noiseWidth, noiseHeight, seed).generateNoise());
+    setNoise(new NoiseGenerator(noiseWidth, noiseHeight, seed).generateNoise());
     setColumns(height);
   }
 

@@ -2,7 +2,7 @@ import { Noise2D } from "open-simplex-noise/lib/2d";
 import { makeNoise2D } from 'open-simplex-noise';
 import { makeRectangle } from 'fractal-noise';
 
-export class NoiceGenerator {
+export class NoiseGenerator {
     width: number;
     height: number;
     noise: Noise2D;
